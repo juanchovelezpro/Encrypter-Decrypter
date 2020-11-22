@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.security.MessageDigest;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -55,8 +56,32 @@ public class Encrypter {
 		try {
 
 			Path path = Paths.get(file.getPath());
-			final byte[] contents = Files.readAllBytes(path);
+			byte[] contents = Files.readAllBytes(path);
+			
+			String hash = Checksum.checksum(file.getPath(), MessageDigest.getInstance("SHA-1"));
 
+			System.out.println("HASH = " + hash);
+			System.out.println("Length Hash = "   + hash.getBytes().length);
+			
+			byte[] hashBytes = hash.getBytes();
+			
+			byte[] contentsWithHash = new byte[contents.length+hashBytes.length];
+			
+			for(int i = 0; i< contentsWithHash.length; i++) {
+				
+				if(i < contents.length) {
+					
+					contentsWithHash[i] = contents[i];
+					
+				}else {
+					
+					contentsWithHash[i] = hashBytes[i];
+					
+				}
+				
+			}
+			
+			
 			byte[] raw = generator.getKey();
 
 			SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
@@ -65,7 +90,7 @@ public class Encrypter {
 
 			cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
 
-			byte[] encrypted = cipher.doFinal(contents);
+			byte[] encrypted = cipher.doFinal(contentsWithHash);
 			
 			String pathEncryptedFiles = FileManager.PATH + "EncryptedFiles/";
 			File folder = new File(pathEncryptedFiles);

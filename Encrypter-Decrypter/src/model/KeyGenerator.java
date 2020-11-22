@@ -88,7 +88,7 @@ public class KeyGenerator {
 
 		String hashedString = Hex.encodeHexString(key);
 
-		System.out.println(hashedString);
+		System.out.println("Key Generated = " + hashedString);
 	}
 
 	public String getPassword() {
