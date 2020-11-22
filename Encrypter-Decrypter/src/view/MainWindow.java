@@ -21,7 +21,9 @@ public class MainWindow extends JFrame {
 
 	public MainWindow() {
 
+		FileManager.createDirectory();
 		FileManager.loadResources();
+
 		setTitle("Encrypter/Decrypter");
 		setLayout(new GridLayout(2, 1));
 		setSize(400, 250);
@@ -75,14 +77,11 @@ public class MainWindow extends JFrame {
 			try {
 				if (fileChooser.getSelectedFile() != null) {
 					fs = new FileInputStream(fileChooser.getSelectedFile());
-					
+
 					String pass = JOptionPane.showInputDialog("Enter password");
-					
-					
+
 					// Encrypt
-					
-					
-					
+
 					//
 
 				} else {
@@ -108,16 +107,11 @@ public class MainWindow extends JFrame {
 			try {
 				if (fileChooser.getSelectedFile() != null) {
 					fs = new FileInputStream(fileChooser.getSelectedFile());
-					
+
 					String pass = JOptionPane.showInputDialog("Enter password");
-					
+
 					// Decrypt
-					
-					
-					
-					
-					
-					
+
 					//
 
 				} else {
@@ -130,7 +124,7 @@ public class MainWindow extends JFrame {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-			
+
 		});
 
 	}
