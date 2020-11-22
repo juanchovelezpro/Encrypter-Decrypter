@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import model.Decrypter;
 import model.Encrypter;
 import tools.FileManager;
 
@@ -115,6 +116,10 @@ public class MainWindow extends JFrame {
 					// SOLAMENTE ES CAMBIAR LO DE NOSOTROS Y YA :)
 					// Y HACERLO EN LA CLASE DECRYPTER :)
 					//
+					
+					
+					Decrypter decrypter = new Decrypter (pass, fileChooser.getSelectedFile());
+					decrypter.decrypt();
 
 				} else {
 

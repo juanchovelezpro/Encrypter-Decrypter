@@ -64,7 +64,7 @@ public class Encrypter {
 
 			cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
 
-			byte[] encrypted = cipher.doFinal(contents.toString().getBytes());
+			byte[] encrypted = cipher.doFinal(contents);
 			
 			String pathEncryptedFiles = FileManager.PATH + "EncryptedFiles/";
 			File folder = new File(pathEncryptedFiles);
