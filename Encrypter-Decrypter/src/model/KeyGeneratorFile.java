@@ -6,7 +6,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-public class KeyGenerator {
+public class KeyGeneratorFile {
 	
 	
 	private String password;
@@ -18,7 +18,7 @@ public class KeyGenerator {
     private byte[] key;
     
     
-    public KeyGenerator(String password) {
+    public KeyGeneratorFile(String password) {
     	
     	
     	this.password= password;
@@ -132,7 +132,7 @@ public class KeyGenerator {
 
 	public static void main(String[] args) {
 		
-    	KeyGenerator pruebita = new KeyGenerator("micontra");
+    	KeyGeneratorFile pruebita = new KeyGeneratorFile("micontra");
     	
     	System.out.println(pruebita.getKey().length);
     	

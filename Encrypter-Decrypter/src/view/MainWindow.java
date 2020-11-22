@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import model.Encrypter;
 import tools.FileManager;
 
 public class MainWindow extends JFrame {
@@ -72,15 +73,18 @@ public class MainWindow extends JFrame {
 			JFileChooser fileChooser = new JFileChooser();
 			fileChooser.showOpenDialog(this);
 
-			FileInputStream fs = null;
 
 			try {
 				if (fileChooser.getSelectedFile() != null) {
-					fs = new FileInputStream(fileChooser.getSelectedFile());
 
 					String pass = JOptionPane.showInputDialog("Enter password");
 
 					// Encrypt
+					
+					
+					
+					Encrypter encrypter = new Encrypter(pass, fileChooser.getSelectedFile());
+					encrypter.EncrypterCode();
 
 					//
 
@@ -102,16 +106,16 @@ public class MainWindow extends JFrame {
 			JFileChooser fileChooser = new JFileChooser();
 			fileChooser.showOpenDialog(this);
 
-			FileInputStream fs = null;
 
 			try {
 				if (fileChooser.getSelectedFile() != null) {
-					fs = new FileInputStream(fileChooser.getSelectedFile());
 
 					String pass = JOptionPane.showInputDialog("Enter password");
 
 					// Decrypt
 
+					// SOLAMENTE ES CAMBIAR LO DE NOSOTROS Y YA :) 
+					// Y HACERLO EN LA CLASE DECRYPTER :)
 					//
 
 				} else {
