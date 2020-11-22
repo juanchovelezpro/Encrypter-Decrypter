@@ -4,11 +4,15 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.FileInputStream;
 
+import javax.swing.AbstractButton;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+
+import tools.FileManager;
 
 public class MainWindow extends JFrame {
 
@@ -17,10 +21,12 @@ public class MainWindow extends JFrame {
 
 	public MainWindow() {
 
+		FileManager.loadResources();
 		setTitle("Encrypter/Decrypter");
 		setLayout(new GridLayout(2, 1));
 		setSize(400, 250);
 		setResizable(false);
+		setIconImage(FileManager.imagenes.get("ICON"));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -43,11 +49,15 @@ public class MainWindow extends JFrame {
 
 		Font font = new Font("Garamond", 1, 32);
 
-		butEncrypt = new JButton("Encrypt");
+		butEncrypt = new JButton("Encrypt", new ImageIcon(FileManager.imagenes.get("ENCRYPT")));
+		butEncrypt.setVerticalTextPosition(AbstractButton.CENTER);
+		butEncrypt.setHorizontalTextPosition(AbstractButton.RIGHT);
 		butEncrypt.setFont(font);
 		add(butEncrypt);
 
-		butDecrypt = new JButton("Decrypt");
+		butDecrypt = new JButton("Decrypt", new ImageIcon(FileManager.imagenes.get("DECRYPT")));
+		butDecrypt.setVerticalTextPosition(AbstractButton.CENTER);
+		butDecrypt.setHorizontalTextPosition(AbstractButton.RIGHT);
 		butDecrypt.setFont(font);
 		add(butDecrypt);
 
