@@ -67,6 +67,8 @@ public class Encrypter {
 			
 			byte[] contentsWithHash = new byte[contents.length+hashBytes.length];
 			
+			
+			int aux = 0;
 			for(int i = 0; i< contentsWithHash.length; i++) {
 				
 				if(i < contents.length) {
@@ -75,7 +77,8 @@ public class Encrypter {
 					
 				}else {
 					
-					contentsWithHash[i] = hashBytes[i];
+					contentsWithHash[i] = hashBytes[aux];
+					aux++;
 					
 				}
 				
