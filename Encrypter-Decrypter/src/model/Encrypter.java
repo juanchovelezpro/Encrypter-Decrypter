@@ -11,28 +11,50 @@ import javax.crypto.spec.SecretKeySpec;
 
 import tools.FileManager;
 
+/**
+ *  Clase para encriptar un archivo con una password.
+ */
 public class Encrypter {
 
-	String pass;
-	File file;
-	KeyGeneratorFile generator;
+	/**
+	 * La password con la que se encriptara un archivo.
+	 */
+	private String pass;
+	
+	/**
+	 * El archivo que se desea encriptar.
+	 */
+	private File file;
+	
+	/**
+	 * El objeto {@code KeyGenerator} que se utiliza para generar la clave con la que se encriptara el archivo {@code file}
+	 */
+	private KeyGenerator generator;
 
+	
+	/**
+	 * Crea un objeto {@code Encrypter} con el se pueden encriptar los archivos.
+	 * @param pass La password con la que se va a encriptar el archivo {@code file}
+	 * @param file El archivo que se va a encriptar
+	 */
 	public Encrypter(String pass, File file) {
 
 		this.pass = pass;
 		this.file = file;
-		generator = new KeyGeneratorFile(pass);
+		generator = new KeyGenerator(pass);
 
 	}
 
-	public void encrypt() {
-
 	
+	/**
+	 * Metodo que encripta el archivo {@code file} con la password {@code password}
+	 */
+	public void encrypt() {
 
 		try {
 
-			Path path2 = Paths.get(file.getPath());
-			final byte[] contents = Files.readAllBytes(path2);
+			Path path = Paths.get(file.getPath());
+			final byte[] contents = Files.readAllBytes(path);
 
 			byte[] raw = generator.getKey();
 
@@ -43,16 +65,19 @@ public class Encrypter {
 			cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
 
 			byte[] encrypted = cipher.doFinal(contents.toString().getBytes());
+			
+			String pathEncryptedFiles = FileManager.PATH + "EncryptedFiles/";
+			File folder = new File(pathEncryptedFiles);
+			folder.mkdirs();			
 
-			final Path newFile = Paths.get(FileManager.PATH+"Encrypted"+file.getName());
+			final Path newFile = Paths.get(pathEncryptedFiles + file.getName());
 
-			System.out.println("encrypted string: " + encrypted.toString());
+			System.out.println("Encrypted string: " + encrypted.toString());
 			Files.write(newFile, encrypted, StandardOpenOption.CREATE);
 			System.out.println(newFile);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}

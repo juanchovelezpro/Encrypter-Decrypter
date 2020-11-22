@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.io.FileInputStream;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;

@@ -61,6 +61,11 @@ public class ImageLoader {
 
 	}
 
+	/**
+	 * Crea el BufferedImage de un Image
+	 * @param image El Image a convertir en BufferedImage
+	 * @return el BufferedImage derivado del Image
+	 */
 	public static BufferedImage imageToBuffered(Image image) {
 
 		// Create a buffered image with transparency
@@ -77,6 +82,12 @@ public class ImageLoader {
 
 	}
 
+	/**
+	 * Obtener el factor de escala de la imagen
+	 * @param original el tamaño original
+	 * @param target El tamaño a redimensionar
+	 * @return El factor escala para la redimension
+	 */
 	public static double getScaleFactor(int original, int target) {
 
 		double scale = 1d;
@@ -87,6 +98,12 @@ public class ImageLoader {
 
 	}
 
+	/**
+	 * Retorna el Image redimensionado.
+	 * @param toResize El BufferedImage a redimensionar
+	 * @param target La dimension a la que se desea redimensionar la imagen
+	 * @return La Imagen redimensionada
+	 */
 	public static Image resizeToFit(BufferedImage toResize, Dimension target) {
 
 		Image resized = null;
