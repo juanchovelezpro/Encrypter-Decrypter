@@ -110,7 +110,7 @@ public class Encrypter {
 					JOptionPane.INFORMATION_MESSAGE);
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Ha ocurrido un error al encriptar el archivo");
+			JOptionPane.showMessageDialog(null, "A problem has ocurred while encrypting the file");
 		}
 
 	}

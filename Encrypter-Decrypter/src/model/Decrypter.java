@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.security.MessageDigest;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -50,6 +51,23 @@ public class Decrypter {
 			cipher.init(Cipher.DECRYPT_MODE, skeySpec);
 
 			byte[] decrypted = cipher.doFinal(contents);
+			System.out.println(""+ decrypted.length);
+			
+			byte[] hashBytes= new byte[40];
+			byte[] pureData= new byte[decrypted.length-hashBytes.length];
+			
+			int aux=0;
+			for(int i=0; i<decrypted.length; i++) {
+				if(i<pureData.length) {
+					pureData[i]= decrypted[i];
+				}
+				else {
+					
+					hashBytes[aux]=decrypted[i];
+					aux++;
+				}
+			}
+				
 			
 			String pathDecryptedFiles = FileManager.PATH + "DecryptedFiles/";
 			File folder = new File(pathDecryptedFiles);
@@ -58,15 +76,33 @@ public class Decrypter {
 			final Path newFile = Paths.get(pathDecryptedFiles + file.getName());
 
 			System.out.println("Decrypted string: " + decrypted.toString());
-			Files.write(newFile, decrypted, StandardOpenOption.CREATE);
+			Files.write(newFile, pureData, StandardOpenOption.CREATE);
 			System.out.println(newFile);
+			
 			
 			JOptionPane.showMessageDialog(null,
 					"The decrypted file was saved in\n" + FileManager.PATH + "/DecryptedFiles/", "File Decrypted",
 					JOptionPane.INFORMATION_MESSAGE);
+			
+			String preEnc= new String(hashBytes);
+			String postDes=Checksum.checksum(pathDecryptedFiles + file.getName(), MessageDigest.getInstance("SHA-1"));
+			
+			if(preEnc.equals(postDes)) {
+				JOptionPane.showMessageDialog(null,
+						"The hashes match, there has been no modification of the file", "Success!",
+						JOptionPane.INFORMATION_MESSAGE);
+				
+			}else {
+				JOptionPane.showMessageDialog(null,
+						"The hashes doesnt match, there has been a modification of the file", "Error",
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				
+			}
 
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Ha ocurrido un error al desencriptar el archivo");
+			JOptionPane.showMessageDialog(null, "A problem has ocurred while decrypting the file");
+			
 		}
 
 	}

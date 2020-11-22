@@ -88,7 +88,7 @@ public class MainWindow extends JFrame {
 
 				} else {
 
-					JOptionPane.showMessageDialog(null, "No se ha seleccionado un archivo", "Error",
+					JOptionPane.showMessageDialog(null, "A file hasnt been selected", "Error",
 							JOptionPane.ERROR_MESSAGE);
 
 				}
@@ -123,7 +123,7 @@ public class MainWindow extends JFrame {
 
 				} else {
 
-					JOptionPane.showMessageDialog(null, "No se ha seleccionado un archivo", "Error",
+					JOptionPane.showMessageDialog(null, "A file hasnt been selected", "Error",
 							JOptionPane.ERROR_MESSAGE);
 
 				}
