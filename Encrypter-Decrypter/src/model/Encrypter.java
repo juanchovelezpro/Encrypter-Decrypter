@@ -25,7 +25,7 @@ public class Encrypter {
 
 	}
 
-	public void EncrypterCode() {
+	public void encrypt() {
 
 	
 

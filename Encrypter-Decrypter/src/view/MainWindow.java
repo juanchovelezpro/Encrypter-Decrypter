@@ -84,7 +84,7 @@ public class MainWindow extends JFrame {
 					
 					
 					Encrypter encrypter = new Encrypter(pass, fileChooser.getSelectedFile());
-					encrypter.EncrypterCode();
+					encrypter.encrypt();
 
 					//
 
