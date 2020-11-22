@@ -72,18 +72,18 @@ public class MainWindow extends JFrame {
 			JFileChooser fileChooser = new JFileChooser();
 			fileChooser.showOpenDialog(this);
 
-
 			try {
 				if (fileChooser.getSelectedFile() != null) {
 
 					String pass = JOptionPane.showInputDialog("Enter password");
 
 					// Encrypt
-					
-					
-					
+
 					Encrypter encrypter = new Encrypter(pass, fileChooser.getSelectedFile());
 					encrypter.encrypt();
+					JOptionPane.showMessageDialog(this,
+							"The encrypted file was saved in\n" + FileManager.PATH + "/EncryptedFiles/", "File Encrypted",
+							JOptionPane.INFORMATION_MESSAGE);
 
 					//
 
@@ -105,7 +105,6 @@ public class MainWindow extends JFrame {
 			JFileChooser fileChooser = new JFileChooser();
 			fileChooser.showOpenDialog(this);
 
-
 			try {
 				if (fileChooser.getSelectedFile() != null) {
 
@@ -113,7 +112,7 @@ public class MainWindow extends JFrame {
 
 					// Decrypt
 
-					// SOLAMENTE ES CAMBIAR LO DE NOSOTROS Y YA :) 
+					// SOLAMENTE ES CAMBIAR LO DE NOSOTROS Y YA :)
 					// Y HACERLO EN LA CLASE DECRYPTER :)
 					//
 

@@ -70,7 +70,7 @@ public class KeyGenerator {
 	private void hashPassword() {
 
 		try {
-			SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+			SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 			PBEKeySpec spec = new PBEKeySpec(passwordChars, saltBytes, iterations, keyLength);
 			SecretKey key = skf.generateSecret(spec);
 			byte[] res = key.getEncoded();
