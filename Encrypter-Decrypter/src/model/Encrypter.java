@@ -8,6 +8,7 @@ import java.nio.file.StandardOpenOption;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JOptionPane;
 
 import tools.FileManager;
 
@@ -75,9 +76,13 @@ public class Encrypter {
 			System.out.println("Encrypted string: " + encrypted.toString());
 			Files.write(newFile, encrypted, StandardOpenOption.CREATE);
 			System.out.println(newFile);
+			
+			JOptionPane.showMessageDialog(null,
+					"The encrypted file was saved in\n" + FileManager.PATH + "/EncryptedFiles/", "File Encrypted",
+					JOptionPane.INFORMATION_MESSAGE);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error al encriptar el archivo");
 		}
 
 	}

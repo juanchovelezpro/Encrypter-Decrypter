@@ -8,6 +8,7 @@ import java.nio.file.StandardOpenOption;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JOptionPane;
 
 import tools.FileManager;
 
@@ -59,9 +60,13 @@ public class Decrypter {
 			System.out.println("Decrypted string: " + decrypted.toString());
 			Files.write(newFile, decrypted, StandardOpenOption.CREATE);
 			System.out.println(newFile);
+			
+			JOptionPane.showMessageDialog(null,
+					"The decrypted file was saved in\n" + FileManager.PATH + "/DecryptedFiles/", "File Decrypted",
+					JOptionPane.INFORMATION_MESSAGE);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Ha ocurrido un error al desencriptar el archivo");
 		}
 
 	}

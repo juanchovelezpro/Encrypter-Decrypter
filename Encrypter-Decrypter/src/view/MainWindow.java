@@ -83,9 +83,6 @@ public class MainWindow extends JFrame {
 					if(pass != null && !pass.equals("")) {
 					Encrypter encrypter = new Encrypter(pass, fileChooser.getSelectedFile());
 					encrypter.encrypt();
-					JOptionPane.showMessageDialog(this,
-							"The encrypted file was saved in\n" + FileManager.PATH + "/EncryptedFiles/", "File Encrypted",
-							JOptionPane.INFORMATION_MESSAGE);
 					}
 					//
 
@@ -117,9 +114,6 @@ public class MainWindow extends JFrame {
 					if(pass != null && !pass.equals("")) {
 					Decrypter decrypter = new Decrypter (pass, fileChooser.getSelectedFile());
 					decrypter.decrypt();
-					JOptionPane.showMessageDialog(this,
-							"The decrypted file was saved in\n" + FileManager.PATH + "/DecryptedFiles/", "File Decrypted",
-							JOptionPane.INFORMATION_MESSAGE);
 					}
 					
 					//
