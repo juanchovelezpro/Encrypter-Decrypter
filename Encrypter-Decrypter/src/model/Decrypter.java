@@ -56,6 +56,9 @@ public class Decrypter {
 			byte[] hashBytes= new byte[40];
 			byte[] pureData= new byte[decrypted.length-hashBytes.length];
 			
+			
+			//This for has been created to separate the hash bytes from the bytes of contents, so to be able 
+			//to do the checksum and compare it with the one in the encrypted file.
 			int aux=0;
 			for(int i=0; i<decrypted.length; i++) {
 				if(i<pureData.length) {

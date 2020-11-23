@@ -69,6 +69,9 @@ public class Encrypter {
 			
 			
 			int aux = 0;
+			
+			//This for its made in order to merge the bytes resulting from the calculated 
+			//hash with the ones of the encrypted file 
 			for(int i = 0; i< contentsWithHash.length; i++) {
 				
 				if(i < contents.length) {
