@@ -47,7 +47,7 @@ Se encuentra el método checksum, El cual, conociendo la ruta del archivo en cue
 En la parte superior se encuentra la carpeta [Encrypter-Decrypter](https://github.com/juanchovelezpro/Encrypter-Decrypter/tree/main/Encrypter-Decrypter). En ella estan los archivos necesarios para poder correr la aplicación en el lenguaje Java, y en el IDE que sea de preferencia. 
 
 
-***Modo de uso para cifrar***
+**Modo de uso para cifrar**
 
 **1.** Descargar la carpeta donde se encuentran los archivos, importarla en el IDE de preferencia y correr la aplicación.
 
@@ -57,7 +57,7 @@ En la parte superior se encuentra la carpeta [Encrypter-Decrypter](https://githu
 
 **4.** Ya una vez aparezca el mensaje donde se  indique que el archivo se cifró correctamente, nos dirigimos a la carpeta home/EncryptedFiles y ahí estará el archivo cifrado.
 
-***Modo de uso para descifrar***
+**Modo de uso para descifrar**
 
 **1.** Descargar la carpeta donde se encuentran los archivos, importarla en el IDE de preferencia y correr la aplicación.
 
@@ -69,7 +69,7 @@ En la parte superior se encuentra la carpeta [Encrypter-Decrypter](https://githu
 
 **Documentación**
 
-Cada Clase, método y variables globales que se usaron en el código de la aplicación, esta debidamente documentada en la carpeta llamada Documentación Javadoc. Esto se realizó mediante la opción de generar Javadoc del IDE Eclipse.
+Cada Clase, método y variables globales que se usaron en el código de la aplicación, esta debidamente documentada en la carpeta llamada documentacion/javadoc. Esto se realizó mediante la opción de generar Javadoc del IDE Eclipse.
 
 
 ## Problemas encontrados y conclusión
