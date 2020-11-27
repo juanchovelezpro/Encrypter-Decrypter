@@ -15,11 +15,25 @@ import model.Decrypter;
 import model.Encrypter;
 import tools.FileManager;
 
+
+/**
+ * Clase donde se encuentra toda la parte visual del proyecto.
+ */
 public class MainWindow extends JFrame {
 
+	/**
+	 * Boton por el cual se despliega la funcionalidad de encriptar.
+	 */
 	private JButton butEncrypt;
+	
+	/**
+	 * Boton por el cual se despliega la funcionalidad de desencritar.
+	 */
 	private JButton butDecrypt;
 
+	/**
+	 * Se crea el objeto MainWindow donde se despliega la parte visual del proyecto.
+	 */
 	public MainWindow() {
 
 		FileManager.createDirectory();
@@ -48,6 +62,9 @@ public class MainWindow extends JFrame {
 
 	}
 
+	/**
+	 * Se ajustan los componentes visuales de la vista: Tamaño de botones, tipo de letra, localización en la vista.
+	 */
 	private void setComponents() {
 
 		Font font = new Font("Garamond", 1, 32);
@@ -66,6 +83,9 @@ public class MainWindow extends JFrame {
 
 	}
 
+	/**
+	 * Se agrega la funcionalidad (listener) a los dos botones dispuestos en la vista.
+	 */
 	private void listeners() {
 
 		butEncrypt.addActionListener(e -> {

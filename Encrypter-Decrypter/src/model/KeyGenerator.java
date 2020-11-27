@@ -28,12 +28,12 @@ public class KeyGenerator {
 	private int iterations;
 	
 	/**
-	 * El tamaño de la clave.
+	 * El tamanio de la clave.
 	 */
 	private int keyLength;
 	
 	/**
-	 * La contraseña en chars.
+	 * La contrasenia en chars.
 	 */
 	private char[] passwordChars;
 	

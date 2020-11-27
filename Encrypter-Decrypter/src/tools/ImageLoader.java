@@ -84,8 +84,8 @@ public class ImageLoader {
 
 	/**
 	 * Obtener el factor de escala de la imagen
-	 * @param original el tamaño original
-	 * @param target El tamaño a redimensionar
+	 * @param original el tamanio original
+	 * @param target El tamanio a redimensionar
 	 * @return El factor escala para la redimension
 	 */
 	public static double getScaleFactor(int original, int target) {

@@ -13,18 +13,32 @@ import javax.swing.JOptionPane;
 
 import tools.FileManager;
 
+/**
+ * Clase para desencriptar un archivo con una password.
+ */
 public class Decrypter {
 	
+	/**
+	 * La password con la que se desencriptará el archivo.
+	 */
 	private String pass;
 	
-	
+	/**
+	 * El archivo que se desea desencriptar.
+	 */
 	private File file;
 	
-	
+	/**
+	 * El objeto de tipo KeyGenerator que genera la clave con la que se desencriptará el archivo.
+	 */
 	private KeyGenerator generator;
 
 	
-	
+	/**
+	 * Crea un objeto de tipo Decrypter con el se pueden desencriptar los archivos.
+	 * @param pass La password con la que se va a encriptar el archivo {@code file}.
+	 * @param file El archivo que se desea desencriptar.
+	 */
 	public Decrypter(String pass, File file) {
 
 		this.pass = pass;
@@ -34,7 +48,9 @@ public class Decrypter {
 	}
 
 	
-	
+	/**
+	 * Metodo que desencripta el archivo que se desea, por medio de la contraseña.
+	 */
 	public void decrypt() {
 
 		try {
